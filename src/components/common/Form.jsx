@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import Input from "./Input";
 import Joi from "@hapi/joi";
 import Select from "./Select";
+import TextArea from "./TextArea";
 
 class Form extends Component {
   state = {
     data: {},
-    errors: {}
+    errors: {},
+    char_length: 0
   };
 
   validate = () => {
@@ -39,6 +41,8 @@ class Form extends Component {
   };
 
   handleChange = ({ currentTarget: input }) => {
+    const char_length = input.textLength;
+
     const errors = { ...this.state.errors };
     const errorMessage = this.validateProperty(input);
     if (errorMessage) errors[input.name] = errorMessage;
@@ -46,7 +50,7 @@ class Form extends Component {
 
     const data = { ...this.state.data };
     data[input.name] = input.value;
-    this.setState({ data, errors });
+    this.setState({ data, errors, char_length });
   };
 
   renderButton(label) {
@@ -58,7 +62,7 @@ class Form extends Component {
     );
   }
 
-  renderInput(name, label, type = "text") {
+  renderInput(name, label, size, type = "text") {
     const { data, errors } = this.state;
 
     return (
@@ -67,7 +71,26 @@ class Form extends Component {
         name={name}
         value={data[name]}
         label={label}
+        size={size}
         onChange={this.handleChange}
+        error={errors[name]}
+      />
+    );
+  }
+
+  renderTextArea(name, label, rows, cols, char_max = 128) {
+    const { data, errors, char_length } = this.state;
+    console.log({ data });
+    return (
+      <TextArea
+        name={name}
+        value={data[name]}
+        label={label}
+        rows={rows}
+        cols={cols}
+        onChange={this.handleChange}
+        char_length={char_length}
+        char_max={char_max}
         error={errors[name]}
       />
     );

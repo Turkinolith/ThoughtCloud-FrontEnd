@@ -1,0 +1,18 @@
+.ListTable {
+  padding: 1rem;
+  margin: 2rem;
+  border: 2px solid black;
+
+  &__titleRow--th {
+    padding: 1rem;
+  }
+
+  &__row__td {
+    padding: 1rem;
+
+    &--complete {
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}

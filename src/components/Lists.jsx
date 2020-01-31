@@ -75,16 +75,18 @@ class Lists extends Component {
         <table className="ListTable">
           <thead className="ListTable__head">
             <tr className="ListTable__titleRow">
-              <th>Content</th>
-              <th>Complete</th>
-              <th />
+              <th className="ListTable__titleRow--th">Content</th>
+              <th className="ListTable__titleRow--th">Complete</th>
+              <th className="ListTable__titleRow--th" />
             </tr>
           </thead>
           <tbody className="ListTable__body">
             {this.state.lists.map(list => (
-              <tr key={list._id}>
-                <td>{list.content}</td>
-                <td>
+              <tr className="ListTable__row" key={list._id}>
+                <td className="ListTable__row__td ListTable__row__td--content">
+                  {list.content}
+                </td>
+                <td className="ListTable__row__td ListTable__row__td--complete">
                   {" "}
                   <input
                     type="checkbox"
@@ -93,7 +95,7 @@ class Lists extends Component {
                     value={list.isComplete}
                   />
                 </td>
-                <td>
+                <td className="ListTable__row__td ListTable__row__td--delete">
                   <button
                     onClick={() => this.handleDelete(list._id)}
                     className="btn btn--white btn--animated"

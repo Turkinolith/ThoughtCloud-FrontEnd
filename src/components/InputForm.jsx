@@ -11,7 +11,7 @@ class InputForm extends Form {
 
   schema = {
     content: Joi.string()
-      .max(20)
+      .max(128)
       .label("Note")
   };
 
@@ -25,7 +25,7 @@ class InputForm extends Form {
       <div className="InputForm">
         <h3 className="InputForm__heading">Add Note</h3>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("content", "Note")}
+          {this.renderTextArea("content", "Note", 4, 40)}
           {this.renderButton("+")}
         </form>
       </div>
