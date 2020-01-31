@@ -18,15 +18,19 @@ class InputForm extends Form {
   doSubmit = () => {
     const submitted = saveList(this.state.data);
     this.props.onAdd(submitted);
+    const data = { content: "" };
+    const char_length = 0;
+    this.setState({ data, char_length });
   };
 
   render() {
     return (
       <div className="InputForm">
-        <h3 className="InputForm__heading">Add Note</h3>
         <form onSubmit={this.handleSubmit}>
-          {this.renderTextArea("content", "Note", 4, 40)}
-          {this.renderButton("+")}
+          {this.renderTextArea("content", "Note", 4, 38)}
+          <div className="InputForm__btnDiv">
+            {this.renderButton("Add Note", "btn--addNote")}
+          </div>
         </form>
       </div>
     );

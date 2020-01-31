@@ -36,8 +36,6 @@ class Lists extends Component {
 
   handleAdd = addEntry => {
     const locallist = this.state.lists;
-    console.log("local: ", locallist);
-    console.log("entry: ", addEntry);
     locallist.push(addEntry);
     this.setState({ lists: locallist });
   };
@@ -98,7 +96,7 @@ class Lists extends Component {
                 <td className="ListTable__row__td ListTable__row__td--delete">
                   <button
                     onClick={() => this.handleDelete(list._id)}
-                    className="btn btn--white btn--animated"
+                    className="btn btn--blue"
                   >
                     Delete
                   </button>

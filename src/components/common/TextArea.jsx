@@ -2,17 +2,22 @@ import React from "react";
 
 const TextArea = ({ name, label, error, char_length, char_max, ...rest }) => {
   return (
-    <div className="form-group">
-      <div className="form-group__label">
+    <div className="InputForm__form-group">
+      <div className="InputForm__form-group--label">
         <label htmlFor={name}>{label}</label>
       </div>
-      <textarea {...rest} name={name} id={name} className="form-control" />
-      {char_length && (
-        <div className="form-control__chars">
-          {char_max - char_length} characters left
+      <textarea
+        {...rest}
+        name={name}
+        id={name}
+        className="InputForm__form-group--textarea"
+      />
+      {
+        <div className="InputForm__form-group--chars">
+          {char_length ? char_max - char_length : 128} characters left
         </div>
-      )}
-      {error && <div className="alert alert-danger">{error}</div>}
+      }
+      {error && <div className="InputForm__form-group--error">{error}</div>}
     </div>
   );
 };

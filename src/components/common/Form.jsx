@@ -53,10 +53,9 @@ class Form extends Component {
     this.setState({ data, errors, char_length });
   };
 
-  renderButton(label) {
-    //console.log("Form.jsx Render validate test:", this.validate());
+  renderButton(label, classes) {
     return (
-      <button disabled={this.validate()} className="btn">
+      <button disabled={this.validate()} className={classes}>
         {label}
       </button>
     );
@@ -80,7 +79,6 @@ class Form extends Component {
 
   renderTextArea(name, label, rows, cols, char_max = 128) {
     const { data, errors, char_length } = this.state;
-    console.log({ data });
     return (
       <TextArea
         name={name}

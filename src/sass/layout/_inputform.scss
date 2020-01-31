@@ -1,0 +1,16 @@
+.InputForm {
+  background-color: $color-grey-light;
+  display: flex;
+  justify-content: space-around;
+
+  &__form-group {
+    display: inline-block;
+    order: 1;
+    flex-grow: 2;
+  }
+  &__btnDiv {
+    display: inline-block;
+    order: 2;
+    padding: 5px 0px 10px 0px;
+  }
+}
