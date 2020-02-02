@@ -7,9 +7,14 @@
 }
 
 html {
+  min-height: 100%;
   font-size: 62.5%;
+
+  background: black;
 }
 
 body {
   box-sizing: border-box;
+  //bottom: 20px;
+  //background: #70b6fc;
 }

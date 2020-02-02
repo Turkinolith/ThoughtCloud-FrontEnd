@@ -1,3 +1,13 @@
 .InputForm__form-group--textarea {
-  max-width: 90%;
+  box-sizing: border-box;
+  border-radius: 30px;
+  max-width: 80%;
+  padding: 10px 15px;
+  margin: 5px 10px;
+  resize: none;
+  transition: all 0.3s;
+
+  &:focus {
+    border: 2px solid $color-blue;
+  }
 }

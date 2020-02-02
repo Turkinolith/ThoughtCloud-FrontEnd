@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Lists from "./components/Lists";
+import Background from "./components/Background";
 import "./sass/app.scss";
-import { ToastContainer } from "react-toastify";
 
 class App extends Component {
   state = {};
   render() {
     return (
       <React.Fragment>
-        <ToastContainer />
+        <Background />
         <main className="container">
           <Lists />
         </main>

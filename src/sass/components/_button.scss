@@ -2,20 +2,40 @@
   &--addNote {
     background-color: $color-white;
     color: $color-black;
+    padding: 7px;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
 
     &::after {
       background-color: $color-white;
     }
 
     &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
       background-color: darken($color-white, 40);
       color: darken($color-white, 70);
+      outline: none;
     }
   }
 
   &--blue {
     background-color: $color-light-blue;
+    outline: none;
+    cursor: pointer;
     color: $color-black;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    border: 1px solid black;
+
+    &:active {
+      transform: translateY(0.1rem);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
 
     &::after {
       background-color: $color-light-blue;

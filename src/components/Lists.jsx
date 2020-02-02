@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getLists, deleteList } from "../services/fakeListService";
 import InputForm from "./InputForm";
-import Image from "../img/logo-green-small-1x.png";
+import Image from "../img/LB_logo_solid_path_50_50.png";
 
 class Lists extends Component {
   state = {
@@ -9,16 +9,6 @@ class Lists extends Component {
       {
         _id: "0000",
         content: "This is my first list entry.",
-        isComplete: false
-      },
-      {
-        _id: "0001",
-        content: "This is my second list entry.",
-        isComplete: true
-      },
-      {
-        _id: "0002",
-        content: "This is my third list entry.",
         isComplete: false
       }
     ]
@@ -28,6 +18,14 @@ class Lists extends Component {
     this.setState({ lists: getLists() });
   } */
 
+  handleCheck = noteID => {
+    const lists = this.state.lists;
+    const index = lists.findIndex(item => item._id === noteID);
+    const value = lists[index].isComplete;
+    lists[index].isComplete = value === false ? true : false;
+    this.setState({ lists });
+  };
+
   handleDelete = noteID => {
     const lists = this.state.lists.filter(li => li._id !== noteID);
     this.setState({ lists });
@@ -35,9 +33,14 @@ class Lists extends Component {
   };
 
   handleAdd = addEntry => {
-    const locallist = this.state.lists;
-    locallist.push(addEntry);
-    this.setState({ lists: locallist });
+    this.setState({ lists: [...this.state.lists, addEntry] });
+  };
+
+  getTextClasses = isComplete => {
+    let classes = "ListTable__row__td ListTable__row__td--content ";
+    classes +=
+      isComplete === true ? "ListTable__row__td--content--complete" : "";
+    return classes;
   };
 
   render() {
@@ -45,66 +48,57 @@ class Lists extends Component {
 
     return (
       <React.Fragment>
+        <div className="header__logo-box">
+          <img src={Image} alt="LB Logo" className="header__logo--image" />
+        </div>
         <header className="header">
-          <div className="header__logo-box">
-            <img src={Image} alt="small green logo" />
-          </div>
           <div className="header__text-box">
             <h1 className="heading-primary">
-              <span className="heading-primary--main">Doit!</span>
-              <span className="heading-primary--main">
-                So you don't forget.
-              </span>
+              <span className="heading-primary--main">Thought Cloud</span>
+              <span className="heading-primary--sub">Fluffy thoughts</span>
             </h1>
           </div>
         </header>
-        <div className="Display">
+        <div className="display">
           {count === 0 ? (
-            <p className="Display__empty">
+            <p className="display__empty">
               There are no lists in the database.
             </p>
-          ) : (
-            <p className="Display__counter">
-              Showing {count} lists in the database.
-            </p>
-          )}
+          ) : null}
         </div>
         <InputForm onAdd={this.handleAdd} />
-        <table className="ListTable">
-          <thead className="ListTable__head">
-            <tr className="ListTable__titleRow">
-              <th className="ListTable__titleRow--th">Content</th>
-              <th className="ListTable__titleRow--th">Complete</th>
-              <th className="ListTable__titleRow--th" />
-            </tr>
-          </thead>
-          <tbody className="ListTable__body">
-            {this.state.lists.map(list => (
-              <tr className="ListTable__row" key={list._id}>
-                <td className="ListTable__row__td ListTable__row__td--content">
-                  {list.content}
-                </td>
-                <td className="ListTable__row__td ListTable__row__td--complete">
-                  {" "}
-                  <input
-                    type="checkbox"
-                    name={list._id}
-                    id={list._id}
-                    value={list.isComplete}
-                  />
-                </td>
-                <td className="ListTable__row__td ListTable__row__td--delete">
-                  <button
-                    onClick={() => this.handleDelete(list._id)}
-                    className="btn btn--blue"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="ListTable">
+          <table className="ListTable__table">
+            <tbody className="ListTable__body">
+              {this.state.lists.map(list => (
+                <tr className="ListTable__row" key={list._id}>
+                  <td className={this.getTextClasses(list.isComplete)}>
+                    {list.content}
+                  </td>
+                  <td className="ListTable__row__td ListTable__row__td--complete">
+                    {" "}
+                    <input
+                      type="checkbox"
+                      name={list._id}
+                      id={list._id}
+                      value={list.isComplete}
+                      checked={list.isComplete}
+                      onClick={() => this.handleCheck(list._id)}
+                    />
+                  </td>
+                  <td className="ListTable__row__td ListTable__row__td--delete">
+                    <button
+                      onClick={() => this.handleDelete(list._id)}
+                      className="btn btn--blue"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

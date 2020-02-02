@@ -1,16 +1,41 @@
 .InputForm {
-  background-color: $color-grey-light;
   display: flex;
   justify-content: space-around;
+
+  &__form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
   &__form-group {
     display: inline-block;
     order: 1;
-    flex-grow: 2;
+    flex-grow: 1;
+    //max-width: 250px;
+    //min-width: 100px;
+
+    &--textarea {
+      max-width: 260px;
+      min-width: 100px;
+      outline: none;
+    }
+
+    &--chars {
+      margin: auto;
+      text-align: center;
+      background-color: grey;
+      border-radius: 100px;
+      width: 120px;
+      //position: relative;
+      //left: 50px;
+      //width: 100px;
+    }
   }
   &__btnDiv {
     display: inline-block;
     order: 2;
-    padding: 5px 0px 10px 0px;
+    padding: 10px 0px 10px 5px;
+    margin: 5px 10px 15px 10px;
   }
 }

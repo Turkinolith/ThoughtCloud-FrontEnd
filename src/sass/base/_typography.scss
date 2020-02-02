@@ -1,33 +1,76 @@
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.4;
   color: $color-grey-dark;
-  padding: 3rem;
 }
 
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
-  margin-bottom: 6rem;
+  margin-bottom: 0.5rem;
 
   &--main {
     display: block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    letter-spacing: 3.5rem;
+    letter-spacing: 1.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+    margin-bottom: 0.5rem;
   }
 
   &--sub {
     display: block;
     font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
+    font-weight: 400;
+    letter-spacing: 0.75rem;
 
     animation: moveInRight 1s ease-out;
   }
+}
+
+.display__empty {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 700;
+  -webkit-text-stroke: 1px black;
+  animation-fill-mode: backwards;
+  animation-name: FadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+
+.InputForm__form-group--textarea {
+  font-size: 1.1rem;
+}
+
+.InputForm__form-group--chars {
+  font-size: 1.35rem;
+  color: $color-white;
+  -webkit-text-stroke: 0.25px black;
+  font-weight: 700;
+}
+
+.InputForm__form-group--error {
+  color: red;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ListTable__row__td--content {
+  font-size: 1.5rem;
+  color: $color-black;
+  text-shadow: 0.03rem 0.03rem grey;
+
+  &--complete {
+    color: $color-grey-dark;
+    text-decoration: line-through;
+  }
+}
+
+.btn--blue {
+  font-weight: 700;
 }

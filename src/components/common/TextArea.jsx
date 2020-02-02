@@ -1,6 +1,14 @@
 import React from "react";
 
-const TextArea = ({ name, label, error, char_length, char_max, ...rest }) => {
+const TextArea = ({
+  name,
+  label,
+  error,
+  char_length,
+  char_max,
+  placeholder,
+  ...rest
+}) => {
   return (
     <div className="InputForm__form-group">
       <div className="InputForm__form-group--label">
@@ -11,6 +19,7 @@ const TextArea = ({ name, label, error, char_length, char_max, ...rest }) => {
         name={name}
         id={name}
         className="InputForm__form-group--textarea"
+        placeholder={placeholder}
       />
       {
         <div className="InputForm__form-group--chars">

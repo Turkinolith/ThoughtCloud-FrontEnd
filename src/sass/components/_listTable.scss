@@ -1,14 +1,38 @@
 .ListTable {
   padding: 1rem;
-  margin: 2rem;
-  border: 2px solid black;
+
+  &__table {
+    margin: auto;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__head {
+    margin: 1rem;
+  }
 
   &__titleRow--th {
     padding: 1rem;
   }
 
+  &__row {
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
   &__row__td {
     padding: 1rem;
+
+    &--content {
+      background-color: lighten($color-blue, 10%);
+      border-radius: 30px;
+      flex-grow: 2;
+      padding: 1.5rem;
+    }
 
     &--complete {
       text-align: center;

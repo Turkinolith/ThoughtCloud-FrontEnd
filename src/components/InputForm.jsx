@@ -26,10 +26,10 @@ class InputForm extends Form {
   render() {
     return (
       <div className="InputForm">
-        <form onSubmit={this.handleSubmit}>
-          {this.renderTextArea("content", "Note", 4, 38)}
+        <form className="InputForm__form" onSubmit={this.handleSubmit}>
+          {this.renderTextArea("content", "", 4, 38, "Add a note?")}
           <div className="InputForm__btnDiv">
-            {this.renderButton("Add Note", "btn--addNote")}
+            {this.renderButton("Add", "btn--addNote")}
           </div>
         </form>
       </div>

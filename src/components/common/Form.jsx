@@ -77,7 +77,7 @@ class Form extends Component {
     );
   }
 
-  renderTextArea(name, label, rows, cols, char_max = 128) {
+  renderTextArea(name, label, rows, cols, placeholder = "", char_max = 128) {
     const { data, errors, char_length } = this.state;
     return (
       <TextArea
@@ -89,6 +89,7 @@ class Form extends Component {
         onChange={this.handleChange}
         char_length={char_length}
         char_max={char_max}
+        placeholder={placeholder}
         error={errors[name]}
       />
     );
