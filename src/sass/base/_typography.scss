@@ -55,9 +55,11 @@ body {
 }
 
 .InputForm__form-group--error {
-  color: red;
+  color: $color-text-warning;
   font-size: 0.9rem;
   font-weight: 700;
+  text-align: center;
+  border-radius: 15px;
 }
 
 .ListTable__row__td--content {

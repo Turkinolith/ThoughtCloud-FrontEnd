@@ -55,7 +55,7 @@ class Lists extends Component {
           <div className="header__text-box">
             <h1 className="heading-primary">
               <span className="heading-primary--main">Thought Cloud</span>
-              <span className="heading-primary--sub">Fluffy thoughts</span>
+              <span className="heading-primary--sub">for fluffy thoughts</span>
             </h1>
           </div>
         </header>
@@ -72,19 +72,11 @@ class Lists extends Component {
             <tbody className="ListTable__body">
               {this.state.lists.map(list => (
                 <tr className="ListTable__row" key={list._id}>
-                  <td className={this.getTextClasses(list.isComplete)}>
+                  <td
+                    className={this.getTextClasses(list.isComplete)}
+                    onClick={() => this.handleCheck(list._id)}
+                  >
                     {list.content}
-                  </td>
-                  <td className="ListTable__row__td ListTable__row__td--complete">
-                    {" "}
-                    <input
-                      type="checkbox"
-                      name={list._id}
-                      id={list._id}
-                      value={list.isComplete}
-                      checked={list.isComplete}
-                      onClick={() => this.handleCheck(list._id)}
-                    />
                   </td>
                   <td className="ListTable__row__td ListTable__row__td--delete">
                     <button

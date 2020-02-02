@@ -71,3 +71,12 @@
     opacity: 1;
   }
 }
+
+@keyframes cloudsMoveLeft {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 100%;
+  }
+}

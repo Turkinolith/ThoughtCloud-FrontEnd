@@ -5,7 +5,53 @@
   height: 100%;
   top: 0px;
   left: 0px;
+  z-index: -3;
+}
+
+.Background__cloud {
   z-index: -1;
+  width: 50px;
+  height: 35px;
+  background-image: url(/src/img/cloud01.png);
+  position: absolute;
+
+  &--cloud1 {
+    top: 1%;
+    left: 0px;
+    animation: cloudsMoveLeft 30s linear infinite;
+  }
+
+  &--cloud2 {
+    top: 20%;
+    left: 0px;
+    animation: cloudsMoveLeft 27s linear infinite;
+    animation-delay: -5s;
+  }
+
+  &--cloud3 {
+    top: 23%;
+    left: 0px;
+    animation: cloudsMoveLeft 23s linear infinite;
+    animation-delay: -5s;
+  }
+
+  &--cloud4 {
+    top: 45%;
+    left: 0px;
+    animation: cloudsMoveLeft 21s linear infinite;
+  }
+  &--cloud5 {
+    top: 50%;
+    left: 0px;
+    animation: cloudsMoveLeft 20s linear infinite;
+    animation-delay: -3s;
+  }
+  &--cloud6 {
+    top: 65%;
+    left: 0px;
+    animation: cloudsMoveLeft 20s linear infinite;
+    animation-delay: -5s;
+  }
 }
 
 .Background li span {
@@ -19,7 +65,7 @@
   background-position: 50% 50%;
   background-repeat: none;
   opacity: 0;
-  z-index: -1;
+  z-index: -3;
   transition: all 1s;
   animation: imageAnimation 36s linear infinite 0s;
 }

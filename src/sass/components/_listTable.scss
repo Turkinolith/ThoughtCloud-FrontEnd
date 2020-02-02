@@ -8,6 +8,7 @@
   &__body {
     display: flex;
     flex-direction: column;
+    min-width: 0;
   }
 
   &__head {
@@ -32,11 +33,14 @@
       border-radius: 30px;
       flex-grow: 2;
       padding: 1.5rem;
+      max-width: 60vw;
+      word-wrap: break-word;
     }
 
     &--complete {
-      text-align: center;
-      vertical-align: middle;
+      //text-align: center;
+      //vertical-align: middle;
+      cursor: pointer;
     }
   }
 }
